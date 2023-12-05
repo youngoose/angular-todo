@@ -7,7 +7,7 @@ import { Todo } from './todo.model';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent {
-  list: Todo[] = [
+  todoList: Todo[] = [
     {
       id: 1,
       todo: 'study',
@@ -21,4 +21,8 @@ export class TodoComponent {
       todo: 'grocery',
     },
   ];
+
+  addTodo(newTodo: Todo) {
+    this.todoList = [...this.todoList, newTodo];
+  }
 }

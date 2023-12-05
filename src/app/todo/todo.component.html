@@ -1,3 +1,4 @@
-<ul *ngFor="let item of list">
-  <li>{{ item.todo }}</li>
+<ul *ngFor="let list of todoList">
+  <li>{{ list.todo }}</li>
 </ul>
+<app-add-todo (todo)="addTodo($event)"></app-add-todo>
