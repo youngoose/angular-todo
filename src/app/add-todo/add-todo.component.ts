@@ -24,7 +24,10 @@ export class AddTodoComponent implements OnInit {
   }
 
   addTodoItem() {
-    this.todo.emit({ id: uuidv4(), todo: this.todoControl.value } as Todo);
+    if (this.todoControl.value) {
+      this.todo.emit({ id: uuidv4(), todo: this.todoControl.value } as Todo);
+    }
+
     this.todoControl.reset();
   }
 }

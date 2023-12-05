@@ -1,4 +1,6 @@
-<ul *ngFor="let list of todoList">
+<ul class="todoItem" *ngFor="let list of todoList">
+  <input type="checkbox" />
   <li>{{ list.todo }}</li>
+  <i class="fa-solid fa-trash"></i>
 </ul>
 <app-add-todo (todo)="addTodo($event)"></app-add-todo>
