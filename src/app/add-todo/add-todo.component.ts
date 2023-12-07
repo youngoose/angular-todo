@@ -27,7 +27,6 @@ export class AddTodoComponent implements OnInit {
     if (this.todoControl.value) {
       this.todo.emit({ id: uuidv4(), todo: this.todoControl.value } as Todo);
     }
-
     this.todoControl.reset();
   }
 }
