@@ -15,7 +15,7 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     this.todoForm = new FormGroup({
       addTodo: new FormControl(null),
-      checkTodo: new FormControl(null),
+      checkTodo: new FormControl(),
     });
   }
 
@@ -43,10 +43,22 @@ export class TodoComponent implements OnInit {
   }
 
   deleteTodo(id: Todo['id']) {
-    this.todoList = this.todoList.filter((todo) => todo.id !== id);
+    this.todoList = this.todoList.filter((todo: Todo) => todo.id !== id);
   }
 
-  handleChange() {
-    console.log('checkTodoControl: ', this.checkTodoControl.value);
+  handleChange(id: Todo['id']) {
+    this.todoList = this.todoList.map((todo: Todo) => {
+      if (todo.id === id) {
+        todo.status === 'active'
+          ? (todo.status = 'completed')
+          : (todo.status = 'active');
+        return todo;
+      }
+      return todo;
+    });
+  }
+
+  changeSelectedStatus(status) {
+    console.log('status from child: ', status);
   }
 }

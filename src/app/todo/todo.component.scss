@@ -1,9 +1,23 @@
-.todoItem {
-  display: flex;
-  padding: 0;
+.card {
+  width: 70%;
+  margin: 32px auto;
 
-  li {
-    list-style-type: none;
-    padding-right: 10px;
+  .form-control:focus {
+    border-color: #ced4da;
+    box-shadow: none !important;
+  }
+
+  .todoItem {
+    display: flex;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      padding-right: 10px;
+    }
+  }
+
+  .completed {
+    text-decoration: line-through;
   }
 }

@@ -1,17 +1,33 @@
-<form [formGroup]="todoForm" (ngSubmit)="addTodoItem()">
-  <ul class="todoItem" *ngFor="let list of todoList">
-    <li>
-      <input
-        type="checkbox"
-        formControlName="checkTodo"
-        (change)="handleChange()"
-      />
-      {{ list.todo }}
-    </li>
-    <button type="button" (click)="deleteTodo(list.id)">
-      <i class="fa-solid fa-trash"></i>
-    </button>
-  </ul>
-  <input type="text" placeholder="add a todo" formControlName="addTodo" />
-  <button type="submit" class="btn btn-success">ADD</button>
-</form>
+<div class="card text-center rounded-0">
+  <div class="card-header">
+    <app-select-todo
+      (selectedStatus)="changeSelectedStatus($event)"
+    ></app-select-todo>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="todoForm" (ngSubmit)="addTodoItem()">
+      <ul class="todoItem" *ngFor="let list of todoList">
+        <li [ngClass]="{ completed: list.status === 'completed' }">
+          <input
+            type="checkbox"
+            formControlName="checkTodo"
+            (change)="handleChange(list.id)"
+          />
+          {{ list.todo }}
+        </li>
+        <button type="button" (click)="deleteTodo(list.id)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </ul>
+      <div class="d-flex">
+        <input
+          class="form-control rounded-0"
+          type="text"
+          placeholder="add a todo"
+          formControlName="addTodo"
+        />
+        <button type="submit" class="btn btn-success rounded-0">ADD</button>
+      </div>
+    </form>
+  </div>
+</div>

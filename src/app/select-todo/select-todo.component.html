@@ -1,0 +1,5 @@
+<select class="form-select form-select-sm" (change)="selectStatus($event)">
+  <option *ngFor="let status of todoStatus">
+    {{ status }}
+  </option>
+</select>
