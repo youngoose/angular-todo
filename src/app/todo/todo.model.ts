@@ -1,7 +1,11 @@
-type todoStatus = 'all' | 'active' | 'completed';
+export enum TodoStatus {
+  ALL = 'all',
+  ACTIVE = 'active',
+  COMPLETED = 'completed',
+}
 
 export interface Todo {
   id: string;
   todo: string;
-  status: todoStatus;
+  status: TodoStatus;
 }
